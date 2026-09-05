@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#070E17">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="Tu démolis la ville pour alimenter le feu. Quand il n'y a plus rien à brûler, la partie est finie.">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="COLDVEIN">
+<title>COLDVEIN</title>
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" type="image/svg+xml" href="./icon.svg">
+<link rel="apple-touch-icon" href="./icon.svg">
+<style>
+  /* Repli avant la feuille : fond nuit, aucun flash blanc. */
+  html,body{height:100%;margin:0;overflow:hidden;background:#070E17;color:#E6EFF5;
+    font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;touch-action:none}
+  #game{display:block;width:100%;height:100%}
+  #ui{position:fixed;inset:0;pointer-events:none}
+</style>
+  <script type="module" crossorigin src="./assets/index-BW97XuR0.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CBR81tGK.css">
+</head>
+<body>
+<canvas id="game" aria-label="COLDVEIN"></canvas>
+<div id="ui"></div>
+<div id="dread" aria-hidden="true"></div>
+<noscript><p style="position:fixed;inset:0;display:grid;place-items:center;margin:0;font-size:14px;color:#9EC7DC">Le jeu a besoin de JavaScript.</p></noscript>
+</body>
+</html>

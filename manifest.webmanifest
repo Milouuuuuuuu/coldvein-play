@@ -1,0 +1,26 @@
+{
+  "name": "COLDVEIN",
+  "short_name": "COLDVEIN",
+  "description": "Tu démolis la ville pour alimenter le feu. Quand il n'y a plus rien à brûler, la partie est finie.",
+  "lang": "fr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#070E17",
+  "theme_color": "#070E17",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}
