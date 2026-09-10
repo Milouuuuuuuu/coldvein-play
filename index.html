@@ -21,13 +21,41 @@
   #game{display:block;width:100%;height:100%}
   #ui{position:fixed;inset:0;pointer-events:none}
 </style>
-  <script type="module" crossorigin src="./assets/index-BW97XuR0.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-CBR81tGK.css">
+  <script type="module" crossorigin src="./assets/index-BC1eGy_2.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-9pOB5rcN.css">
 </head>
 <body>
 <canvas id="game" aria-label="COLDVEIN"></canvas>
 <div id="ui"></div>
 <div id="dread" aria-hidden="true"></div>
+<div id="rush" aria-hidden="true"></div>
 <noscript><p style="position:fixed;inset:0;display:grid;place-items:center;margin:0;font-size:14px;color:#9EC7DC">Le jeu a besoin de JavaScript.</p></noscript>
+<script>
+  // Filet de secours pose avant le module. Il n'existe que pour le cas ou le module lui meme
+  // ne se charge pas : erreur de compilation, 500 du serveur de dev, reseau coupe. Dans ce cas
+  // le filet de main.ts n'a jamais ete installe, et la page reste noire sans un mot.
+  (function () {
+    var vu = false;
+    function dire(quoi) {
+      if (vu) return;
+      vu = true;
+      var d = document.createElement('div');
+      d.style.cssText = 'position:fixed;inset:0;display:grid;place-items:center;padding:24px;' +
+        'pointer-events:auto;font:13px/1.6 ui-sans-serif,system-ui,sans-serif;color:#9EC7DC;' +
+        'text-align:center;white-space:pre-wrap';
+      d.textContent = 'Le jeu n a pas pu se charger.' + String.fromCharCode(10) + String.fromCharCode(10) + quoi;
+      (document.getElementById('ui') || document.body).appendChild(d);
+    }
+    addEventListener('error', function (e) {
+      // Une ressource qui echoue leve un event sans message : on nomme la source.
+      if (e.target && e.target !== window && e.target.src) dire('Ressource injoignable : ' + e.target.src);
+      else if (e.message) dire(e.message);
+    }, true);
+    // Si le module n'a pas demarre au bout de dix secondes, c'est qu'il ne demarrera pas.
+    setTimeout(function () {
+      if (!window.__coldveinDemarre) dire('Le script principal n a pas demarre. Regarde le terminal du serveur de dev.');
+    }, 10000);
+  })();
+</script>
 </body>
 </html>
